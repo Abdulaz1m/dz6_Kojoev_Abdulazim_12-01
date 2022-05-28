@@ -1,0 +1,13 @@
+.countWrapper {
+    padding: 20px;
+}
+
+.countWrapper {
+    font-size: 24px;
+}
+
+.countWrapper button {
+    font-size: 24px;
+    width: 100px;
+    height: 100px;
+}
