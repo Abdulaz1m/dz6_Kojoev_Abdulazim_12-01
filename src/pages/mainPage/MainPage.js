@@ -1,21 +1,25 @@
 import React,{useState} from "react";
-import News from "../../components/news/News";
+import Users from "../../components/users/Users";
+
+const URL = "https://jsonplaceholder.typicode.com/users"
 
 function MainPage () {
 
-    const [state, setState] = useState(false)
+    const [users, setUsers] = useState([])
 
-    function openNews (e) {
-        e.preventDefault()
-        setState(!state)
+    const getUsers = () => {
+        fetch(URL)
+            .then(response => response.json())
+            .then(date => setUsers(date))
     }
 
     return (
         <>
-            {state === true ? <News/> : ""}
-            <button onClick={openNews}>Открыть/Закрыть News</button>
+            <Users propsUsers={users}/>
+            <button onClick={getUsers} className="button">get users</button>
         </>
     )
+    
 }
 
 export default MainPage;
